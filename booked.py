@@ -12,12 +12,12 @@ class Book(Seating):
     def booking(self):
         global x, y
         info = 0
-        x = int(input("Please enter row of desired seat:\n"))
-        y = int(input("Please enter column of desired seat:\n"))
+        x = int(input("Please enter row of desired seat:\n"))-1
+        y = int(input("Please enter column of desired seat:\n"))-1
         if config.val[x][y] != 'B':
             if(self.row*self.column <= 60):
                 config.price = 10
-                chi = input("Price: {}\nWould you like to purchase this seat? If yes, type yes:\n".format(
+                chi = input("Price: ${}\nWould you like to purchase this seat? If yes, type yes:\n".format(
                     config.price)).lower()
                 config.price = str(config.price)+"$"
                 if chi == 'yes' or chi == 'Y' or chi == 'y':
@@ -32,7 +32,7 @@ class Book(Seating):
                 config.half = self.row//2
                 if x <= config.half:
                     config.price = 10
-                    chi = input("Price: {}\nWould you like to purchase this seat? If yes, type yes:\n".format(
+                    chi = input("Price: ${}\nWould you like to purchase this seat? If yes, type yes:\n".format(
                         config.price)).lower()
                     config.price = str(config.price)+"$"
                     if chi == 'yes' or chi == 'Y' or chi == 'y':
@@ -45,7 +45,7 @@ class Book(Seating):
 
                 elif x > config.half:
                     config.price = 8
-                    chi = input("Price: {}\nWould you like to purchase this seat? If yes, type yes:\n".format(
+                    chi = input("Price: ${}\nWould you like to purchase this seat? If yes, type yes:\n".format(
                         config.price)).lower()
                     config.price = str(config.price)+"$"
                     if chi == 'yes' or chi == 'Y' or chi == 'y':
